@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="50dp"
+    tools:context=".Metric">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:text="Metric Conversion" />
+
+    <TextView
+        android:id="@+id/textNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTitle"
+        android:layout_marginTop="60dp"
+        android:layout_alignRight="@id/textCentimeterLabel"
+        android:text="Last Name:" />
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textNameLabel"
+        android:layout_alignBaseline="@id/textNameLabel"
+        android:layout_marginLeft="20dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textNameLabel"
+        android:layout_alignRight="@id/textNameLabel"
+        android:layout_marginTop="30dp"
+        android:text="Meter:" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/textMeter"
+        android:layout_alignLeft="@id/textName"
+        android:ems="7"
+        android:inputType="numberDecimal"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textCentimeterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textMeter"
+        android:layout_marginTop="30dp"
+        android:text="Centimeter:" />
+
+    <TextView
+        android:id="@+id/textCentimeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textCentimeterLabel"
+        android:layout_alignBaseline="@id/textCentimeterLabel"
+        android:layout_marginLeft="20dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textKilometerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textCentimeterLabel"
+        android:layout_alignRight="@id/textNameLabel"
+        android:layout_marginTop="30dp"
+        android:text="Kilometer:" />
+
+    <TextView
+        android:id="@+id/textKilometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textKilometerLabel"
+        android:layout_alignBaseline="@id/textKilometerLabel"
+        android:layout_marginLeft="20dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textKilometer"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
+        android:text="Convert" />
+
+    <Button
+        android:id="@+id/btnReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textKilometer"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:textAllCaps="false"
+        android:text="Return" />
+
+</RelativeLayout>

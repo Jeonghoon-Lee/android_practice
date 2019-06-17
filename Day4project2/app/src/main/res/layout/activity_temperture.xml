@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="50dp"
+    tools:context=".Temperature">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:text="Temperature Conversion" />
+
+    <TextView
+        android:id="@+id/textTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTitle"
+        android:layout_marginTop="50dp"
+        android:text="Temperature C:" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/textTemperature"
+        android:layout_toRightOf="@id/textTemperature"
+        android:layout_marginLeft="20dp"
+        android:ems="7"
+        android:inputType="numberDecimal"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textTemperatureFLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTemperature"
+        android:layout_alignRight="@id/textTemperature"
+        android:layout_marginTop="30dp"
+        android:text="Temperature F:" />
+
+    <TextView
+        android:id="@+id/textTemperatureF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/textTemperatureFLabel"
+        android:layout_alignLeft="@id/editText"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTemperatureFLabel"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
+        android:text="Convert" />
+
+    <Button
+        android:id="@+id/btnReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTemperatureFLabel"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:textAllCaps="false"
+        android:text="Return" />
+
+</RelativeLayout>
