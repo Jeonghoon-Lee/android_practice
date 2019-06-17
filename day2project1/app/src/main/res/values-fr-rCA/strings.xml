@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">jour03 projet1</string>
+    <string name="btn_name">Afficher la somme</string>
+    <string name="title">calculatrice simple</string>
+    <string name="text1">Entrez le premier numéro</string>
+    <string name="text2">Entrez le deuxième numéro</string>
+</resources>

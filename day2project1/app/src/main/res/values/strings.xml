@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">day03 project1</string>
+    <string name="btn_name">Display the sum</string>
+    <string name="title">Simple Calculator</string>
+    <string name="text1">Enter the first number</string>
+    <string name="text2">Enter the second number</string>
+</resources>
