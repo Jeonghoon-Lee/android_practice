@@ -52,13 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE1) {
+            String result;
             if (resultCode == RESULT_OK) {
+                result = data.getStringExtra("return_result_tag");
             } else {
+                result = data.getStringExtra("cancel_tag");
             }
+            textViewResult.setText(result);
         } else {
-            if (getIntent() != null) {
-                String result = getIntent().getStringExtra("return_result_from_test2");
+            if (data != null) {
+                String result = data.getStringExtra("return_result_from_test2");
                 textViewResult.setText(result);
             }
         }
-    }}
+    }
+}
