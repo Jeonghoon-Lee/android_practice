@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (resultCode == RESULT_OK) {
                 result = data.getStringExtra("return_result_tag");
             } else {
-                result = data.getStringExtra("cancel_tag");
+                result = data != null ? data.getStringExtra("cancel_tag") : "cancel";
             }
             textViewResult.setText(result);
         } else {

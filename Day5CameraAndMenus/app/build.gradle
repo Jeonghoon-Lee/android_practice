@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "ca.jeonghoon.day4project3"
+        applicationId "ca.jeonghoon.day5cameraandmenus"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -18,8 +18,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = var
-        targetCompatibility = var1
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
 }
 
