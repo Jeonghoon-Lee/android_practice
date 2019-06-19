@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "ca.jeonghoon.day5passingindent"
+        applicationId "ca.jeonghoon.jeonghoon_mid"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
