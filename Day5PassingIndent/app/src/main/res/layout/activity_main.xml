@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:divider="@drawable/divider_shape"
+    android:showDividers="middle"
     tools:context=".MainActivity">
 
     <TextView
@@ -66,13 +67,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:text="0" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <TextView
@@ -91,12 +92,12 @@
             android:layout_weight="3" >
 
             <RadioButton
-                android:id="@+id/radioAnimation"
+                android:id="@+id/radioAdventure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="Animation" />
+                android:text="Adventure" />
             <RadioButton
                 android:id="@+id/radioAction"
                 android:layout_width="wrap_content"
@@ -115,7 +116,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:orientation="horizontal"/>
 
     <LinearLayout
@@ -130,6 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
+            android:textSize="12dp"
             android:text="Clear" />
 
         <Button
@@ -138,6 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
+            android:textSize="12dp"
             android:text="Add" />
 
         <Button
@@ -146,6 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
+            android:textSize="12dp"
             android:text="Remove" />
 
         <Button
@@ -154,7 +158,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:text="Update Email" />
+            android:textSize="12dp"
+            android:text="Update email" />
     </LinearLayout>
 
     <Button
