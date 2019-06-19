@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:divider="@drawable/divider_shape"
-    android:showDividers="middle"
+    android:showDividers="middle|end"
     tools:context=".MainActivity">
 
     <TextView
