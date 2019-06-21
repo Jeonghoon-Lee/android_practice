@@ -9,10 +9,16 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import ca.jeonghoon.jeonghoonproject.Model.MathQuiz;
+import ca.jeonghoon.jeonghoonproject.Model.MathQuizCollection;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText editTextAnswer;
     TextView textViewQuiz;
+
+    MathQuiz currentQuiz;
+    MathQuizCollection mathQuizCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.buttonScore).setOnClickListener(this);
         findViewById(R.id.buttonFinish).setOnClickListener(this);
+
+        // initialize data collection
+        mathQuizCollection = new MathQuizCollection();
     }
 
     @Override
