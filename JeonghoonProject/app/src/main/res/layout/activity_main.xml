@@ -31,15 +31,17 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editTextAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
+            android:enabled="false"
             android:text="" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textViewQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
