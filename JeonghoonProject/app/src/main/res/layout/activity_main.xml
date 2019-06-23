@@ -11,6 +11,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -36,7 +37,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:enabled="false"
             android:text="" />
     </LinearLayout>
 
@@ -189,6 +189,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 style="@style/ButtonStyle"
+                android:enabled="false"
                 android:text="Validate" />
 
             <Button
@@ -208,6 +209,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                style="@style/ButtonStyle"
                 android:textSize="18dp"
                 android:text="Score" />
 
@@ -216,6 +218,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                style="@style/ButtonStyle"
                 android:textSize="18dp"
                 android:text="Finish" />
         </TableRow>

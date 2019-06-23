@@ -21,6 +21,7 @@
         android:text="Your Results and Score" />
 
     <RadioGroup
+        android:id="@+id/radioGroupShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -62,9 +63,10 @@
     </RadioGroup>
 
     <ListView
+        android:id="@+id/listViewResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -111,14 +113,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="Show" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"

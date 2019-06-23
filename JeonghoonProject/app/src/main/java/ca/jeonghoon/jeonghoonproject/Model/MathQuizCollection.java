@@ -10,4 +10,15 @@ public class MathQuizCollection implements Serializable {
     public List<MathQuiz> getQuizList() {
         return quizList;
     }
+
+    public int getScore() {
+        int rightAnswerCount = 0;
+        for (MathQuiz quiz : quizList) {
+            if (quiz.isValidAnswer()) {
+                rightAnswerCount++;
+            }
+        }
+        // return score
+        return (int) (((double) rightAnswerCount) / quizList.size() * 100.);
+    }
 }

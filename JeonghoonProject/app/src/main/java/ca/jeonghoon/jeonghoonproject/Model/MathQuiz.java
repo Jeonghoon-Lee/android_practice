@@ -9,7 +9,7 @@ public class MathQuiz implements Serializable {
     private int operand1;
     private int operand2;
     private double expectedAnswer;
-    private double userAnswer;
+    private String userAnswer;
 
     public MathQuiz() { }
 
@@ -53,11 +53,11 @@ public class MathQuiz implements Serializable {
         this.expectedAnswer = expectedAnswer;
     }
 
-    public double getUserAnswer() {
+    public String getUserAnswer() {
         return userAnswer;
     }
 
-    public void setUserAnswer(double userAnswer) {
+    public void setUserAnswer(String userAnswer) {
         this.userAnswer = userAnswer;
     }
 
@@ -115,8 +115,17 @@ public class MathQuiz implements Serializable {
         return String.format("%d %s %d", operand1, opratorStr, operand2);
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s = %s, %s",
+                getQuizString(),
+                userAnswer,
+                isValidAnswer() ? "right" : "wrong"
+        );
+    }
+
     public boolean isValidAnswer() {
-        if (expectedAnswer == userAnswer)
+        if (expectedAnswer == Double.valueOf(userAnswer))
             return true;
         return false;
     }
