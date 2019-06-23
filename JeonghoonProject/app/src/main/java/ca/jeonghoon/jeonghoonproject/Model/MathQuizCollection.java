@@ -13,6 +13,7 @@ public class MathQuizCollection implements Serializable {
 
     public int getScore() {
         int rightAnswerCount = 0;
+
         for (MathQuiz quiz : quizList) {
             if (quiz.isValidAnswer()) {
                 rightAnswerCount++;

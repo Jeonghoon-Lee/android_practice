@@ -8,7 +8,7 @@ public class MathQuiz implements Serializable {
 
     private int operand1;
     private int operand2;
-    private double expectedAnswer;
+
     private String userAnswer;
 
     public MathQuiz() { }
@@ -17,8 +17,6 @@ public class MathQuiz implements Serializable {
         this.operator = operator;
         this.operand1 = operand1;
         this.operand2 = operand2;
-
-        calculateAnswer();
     }
 
     public MathOperator getOperator() {
@@ -45,14 +43,6 @@ public class MathQuiz implements Serializable {
         this.operand2 = operand2;
     }
 
-    public double getExpectedAnswer() {
-        return expectedAnswer;
-    }
-
-    public void setExpectedAnswer(double expectedAnswer) {
-        this.expectedAnswer = expectedAnswer;
-    }
-
     public String getUserAnswer() {
         return userAnswer;
     }
@@ -61,7 +51,9 @@ public class MathQuiz implements Serializable {
         this.userAnswer = userAnswer;
     }
 
-    public void calculateAnswer() {
+    public double calculateExpectedAnswer() {
+        double expectedAnswer = 0;
+
         switch (operator) {
             case Add:
                 expectedAnswer = operand1 + operand2;
@@ -73,9 +65,11 @@ public class MathQuiz implements Serializable {
                 expectedAnswer = operand1 * operand2;
                 break;
             case Divide:
-                expectedAnswer = operand1 / operand2;
+                expectedAnswer = (double)operand1 / (double)operand2;
                 break;
         }
+
+        return expectedAnswer;
     }
 
     @Override
@@ -85,13 +79,12 @@ public class MathQuiz implements Serializable {
         MathQuiz mathQuiz = (MathQuiz) o;
         return operand1 == mathQuiz.operand1 &&
                 operand2 == mathQuiz.operand2 &&
-                Double.compare(mathQuiz.expectedAnswer, expectedAnswer) == 0 &&
                 operator == mathQuiz.operator;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(operator, operand1, operand2, expectedAnswer);
+        return Objects.hash(operator, operand1, operand2);
     }
 
     public String getQuizString() {
@@ -120,13 +113,16 @@ public class MathQuiz implements Serializable {
         return String.format("%s = %s, %s",
                 getQuizString(),
                 userAnswer,
-                isValidAnswer() ? "right" : "wrong"
+                isValidAnswer() ? "Right" : "Wrong"
         );
     }
 
     public boolean isValidAnswer() {
-        if (expectedAnswer == Double.valueOf(userAnswer))
+        double expectedAnswer = calculateExpectedAnswer();
+
+        if (expectedAnswer == Double.valueOf(userAnswer)) {
             return true;
+        }
         return false;
     }
 }

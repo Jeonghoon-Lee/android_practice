@@ -2,8 +2,11 @@ package ca.jeonghoon.jeonghoonproject;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,8 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int operand1;
     private int operand2;
 
-    StringBuilder userInputStr;
-
     MathQuizCollection mathQuizCollection;
 
     @Override
@@ -40,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialize() {
-        editTextAnswer = findViewById(R.id.editTextAnswer);
-
         textViewTitle = findViewById(R.id.textViewTitle);
         textViewQuiz = findViewById(R.id.textViewQuiz);
+
+        editTextAnswer = findViewById(R.id.editTextAnswer);
 
         // Add onclick event listeners for buttons
         findViewById(R.id.button1).setOnClickListener(this);
@@ -68,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // initialize data collection
         mathQuizCollection = new MathQuizCollection();
-        // initialize user input
-        userInputStr = new StringBuilder();
     }
 
     @Override
@@ -104,43 +103,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 score();
                 break;
             case R.id.buttonFinish:
-                finish();
+                exitProgram();
                 break;
         }
     }
 
     private void addNumberToUserAnswer(String input) {
-        if (userInputStr.length() == 0) {       // empty
+        StringBuilder currentAnswer = new StringBuilder(editTextAnswer.getText().toString());
+
+        if (currentAnswer.length() == 0) {
             if (input.equals(".")) {
-                userInputStr.append("0");       // add 0 before adding dot(.)
+                currentAnswer.append("0");       // add 0 before adding dot(.)
             }
-            userInputStr.append(input);
+            currentAnswer.append(input);
 
             // enable validate button
             findViewById(R.id.buttonValidate).setEnabled(true);
         } else {
-            if (userInputStr.length() == 1 && userInputStr.indexOf("0") == 0) { // current input is 0
+            if (currentAnswer.length() == 1 && currentAnswer.indexOf("0") == 0) { // current input is 0
                 // number can't be started with 0. ignore previous 0
                 if (!input.equals(".")) {
-                    userInputStr.setLength(0);      // clear buffer
+                    currentAnswer.setLength(0);      // clear buffer
                 }
-                userInputStr.append(input);
+                currentAnswer.append(input);
             } else {
                 if (input.equals("-")) {
-                    if (userInputStr.indexOf("-") == 0) {   // number is already minus value
-                        userInputStr.deleteCharAt(0);       // delete minus(-) sign
+                    if (currentAnswer.indexOf("-") == 0) {   // number is already minus value
+                        currentAnswer.deleteCharAt(0);       // delete minus(-) sign
                     } else {
-                        userInputStr.insert(0, "-");
+                        currentAnswer.insert(0, "-");
                     }
                 } else if (input.equals(".")) {
-                    if (userInputStr.indexOf(".") < 0) {   // if number doesn't have dot(.)
-                        userInputStr.append(".");
+                    if (currentAnswer.indexOf(".") < 0) {   // if number doesn't have dot(.)
+                        currentAnswer.append(".");
                     }
                 } else {    // number
-                    userInputStr.append(input);
+                    currentAnswer.append(input);
                 }
             }
         }
+        editTextAnswer.setText(currentAnswer);
+        editTextAnswer.setSelection(editTextAnswer.getText().length());     // move cursor to end
     }
 
     private void processUserInput(View view) {
@@ -182,8 +185,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumberToUserAnswer("-");
                 break;
         }
-        editTextAnswer.setText(userInputStr);
-        editTextAnswer.moveCursorToVisibleOffset();
     }
 
     private void generateQuiz() {
@@ -216,25 +217,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void validateAnswer() {
+        String userAnswer = editTextAnswer.getText().toString();
+
         MathQuiz mathQuizAnswer = new MathQuiz(operator, operand1, operand2);
 
         // set user Answer to currentQuiz
-        mathQuizAnswer.setUserAnswer(userInputStr.toString());
+        mathQuizAnswer.setUserAnswer(userAnswer);
 
         // Add to the mathQuizCollection
         mathQuizCollection.getQuizList().add(mathQuizAnswer);
 
         // show message to user
         if (mathQuizAnswer.isValidAnswer()) {
-            Toast.makeText(this, "right", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Right", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Wrong", Toast.LENGTH_LONG).show();
         }
     }
 
     private void clearDisplay() {
-        userInputStr.setLength(0);
-        editTextAnswer.setText(userInputStr);
+        editTextAnswer.setText("");
 
         // disable validate button
         findViewById(R.id.buttonValidate).setEnabled(false);
@@ -250,13 +252,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivityForResult(intent, REQUEST_SHOW_RESULT);
     }
 
+    private void exitProgram() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Exit program")
+                .setMessage("Do you want to exit ?")
+                .setCancelable(false)
+                .setIcon(android.R.drawable.ic_dialog_info)
+
+                .setPositiveButton("Yes", (dialog, i) -> finish())
+                .setNegativeButton("No", null);
+
+        builder.show();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if ((requestCode == REQUEST_SHOW_RESULT) && (data != null)) {
             if (resultCode == RESULT_OK) {
                 String name = data.getStringExtra("name");
                 // display register name and score in the title
-                textViewTitle.setText(String.format("%s, %d%%", name, mathQuizCollection.getScore()));
+                textViewTitle.setText(String.format("%s, Score: %d%%", name, mathQuizCollection.getScore()));
             }
         }
     }

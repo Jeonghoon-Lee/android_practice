@@ -3,6 +3,7 @@ package ca.jeonghoon.jeonghoonproject;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -98,15 +99,6 @@ public class ResultActivity extends AppCompatActivity implements ViewStub.OnClic
         }
     }
 
-    // return registered name to MainActivity
-    private void backToMain() {
-        Intent intent = new Intent();
-        intent.putExtra("name", editTextName.getText().toString());
-
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
     private void showAllResult() {
         displayList(mathQuizCollection.getQuizList().toArray());
     }
@@ -152,5 +144,35 @@ public class ResultActivity extends AppCompatActivity implements ViewStub.OnClic
         );
 
         listViewResult.setAdapter(listAdapter);
+    }
+
+    // return registered name to MainActivity
+    private void backToMain() {
+        if (editTextName.getText().length() > 0) {
+            Intent intent = new Intent();
+            intent.putExtra("name", editTextName.getText().toString());
+
+            setResult(RESULT_OK, intent);
+            finish();
+        } else {
+            showAlertDialog();
+        }
+    }
+
+    void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Go back to Main")
+                .setMessage("Do you want to go back to main without name ?")
+                .setCancelable(false)
+                .setIcon(android.R.drawable.ic_dialog_info)
+
+                .setPositiveButton("Yes", (dialog, i) -> {
+                    setResult(RESULT_CANCELED, null);
+                    finish();
+                })
+                .setNegativeButton("No", null);
+
+        builder.show();
     }
 }
