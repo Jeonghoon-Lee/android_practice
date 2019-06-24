@@ -120,12 +120,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // enable validate button
             findViewById(R.id.buttonValidate).setEnabled(true);
         } else {
-            if (currentAnswer.length() == 1 && currentAnswer.indexOf("0") == 0) { // current input is 0
-                // number can't be started with 0. ignore previous 0
-                if (!input.equals(".")) {
-                    currentAnswer.setLength(0);      // clear buffer
+            if (currentAnswer.length() == 1) {
+                if (currentAnswer.indexOf("0") == 0) { // current input is 0
+                    // number can't be started with 0. ignore previous 0
+                    if (!input.equals(".")) {
+                        currentAnswer.setLength(0);     // clear buffer
+                    }
+                    currentAnswer.append(input);
+                } else if (currentAnswer.indexOf("-") == 0) {
+                    if (input.equals(".")) {
+                        currentAnswer.append("0");      // add 0 before dot(.)
+                        currentAnswer.append(input);
+                    } else if (input.equals("-")) {
+                        currentAnswer.setLength(0);
+                    } else {
+                        currentAnswer.append(input);
+                    }
+                } else {
+                    currentAnswer.append(input);
                 }
-                currentAnswer.append(input);
             } else {
                 if (input.equals("-")) {
                     if (currentAnswer.indexOf("-") == 0) {   // number is already minus value
@@ -219,6 +232,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void validateAnswer() {
         String userAnswer = editTextAnswer.getText().toString();
 
+        // check if quiz is available
+        if (textViewQuiz.length() < 1) {
+            Toast.makeText(this, "Please generate a quiz first!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // user input is only minus sign without number
+        if (userAnswer.equals("-")) {
+            Toast.makeText(this, "Please enter number", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // valid input
         MathQuiz mathQuizAnswer = new MathQuiz(operator, operand1, operand2);
 
         // set user Answer to currentQuiz
