@@ -1,15 +1,23 @@
 package ca.jeonghoon.phonebook;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ca.jeonghoon.phonebook.model.Person;
 import ca.jeonghoon.phonebook.model.PersonCollection;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final int PERMISSIONS_REQ_CODE = 1234;
 
     TextView textViewLastName;
 
@@ -19,6 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initialize();
+
+        // For Android 6 (Marshmallow, API 23)and above we have to check permission in runtime
+        // only using AndroidManifest.xml is not enough
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+            checkPermissions();
+        }
     }
 
     private void initialize() {
@@ -58,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonList:
-                showPhonebookList();
+                showPhoneBookList();
                 break;
             case R.id.buttonPersonActivity:
                 openPersonActivity();
@@ -66,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void showPhonebookList() {
+    private void showPhoneBookList() {
         Intent intent = new Intent(MainActivity.this, PhonebookActivity.class);
         startActivity(intent);
     }
@@ -74,5 +88,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void openPersonActivity() {
         Intent intent = new Intent(MainActivity.this, PersonActivity.class);
         startActivity(intent);
+    }
+
+    private void checkPermissions() {
+        if (!hasPermissionForCallEvent()) {
+            // Define an array to save the permissions we need for
+            // phone state and outgoing calls event
+            String[] perms = new String[]{
+                    Manifest.permission.SEND_SMS,
+                    Manifest.permission.RECEIVE_SMS};
+
+            // Request permission with specific code
+            ActivityCompat.requestPermissions(this, perms, PERMISSIONS_REQ_CODE);
+        }
+    }
+
+    private boolean hasPermissionForCallEvent() {
+        return ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+                        == PackageManager.PERMISSION_GRANTED &&
+
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)
+                        == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        // Check if the permission response is for our request code
+        if (requestCode == PERMISSIONS_REQ_CODE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                    grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permission granted.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Permission denied.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

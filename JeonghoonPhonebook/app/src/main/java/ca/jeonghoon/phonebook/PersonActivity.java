@@ -65,6 +65,7 @@ public class PersonActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.buttonAddPerson:
                 addNewPerson();
                 break;
+
             case R.id.buttonRemovePerson:
                 if (editTextLastName.getText().length() > 0) {
                     Person foundPerson = findPersonByLastName(editTextLastName.getText().toString());
@@ -74,6 +75,7 @@ public class PersonActivity extends AppCompatActivity implements View.OnClickLis
                     }
                 }
                 break;
+
             case R.id.buttonFindPerson:
                 if (editTextLastName.getText().length() > 0) {
                     Person foundPerson = findPersonByLastName(editTextLastName.getText().toString());
@@ -130,7 +132,7 @@ public class PersonActivity extends AppCompatActivity implements View.OnClickLis
 
         // Pass the person id on to DetailActivity
         Intent intent = new Intent(PersonActivity.this, DetailActivity.class);
-        intent.putExtra(DetailActivity.EXTRA_PERSONID, selectedPersonId);
+        intent.putExtra(DetailActivity.EXTRA_PERSON_ID, selectedPersonId);
         startActivity(intent);
     }
 }

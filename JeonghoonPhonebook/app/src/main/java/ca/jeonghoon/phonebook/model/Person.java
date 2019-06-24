@@ -6,18 +6,14 @@ public class Person {
 
     private String firstName;
     private String lastName;
+    // image
     private int imageResourceId;
+
     private String phone;
     private String email;
     private String address;
 
     public Person() { }
-
-    public Person(String firstName, String lastName, int imageResourceId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.imageResourceId = imageResourceId;
-    }
 
     public Person(String firstName, String lastName, String phone, String email, String address) {
         this.firstName = firstName;

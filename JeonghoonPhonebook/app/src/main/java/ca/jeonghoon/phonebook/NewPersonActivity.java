@@ -28,6 +28,7 @@ public class NewPersonActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextAddress = findViewById(R.id.editTextAddress);
 
+        // set click listener
         findViewById(R.id.buttonAddPerson).setOnClickListener(view -> addNewPerson(view));
     }
 
@@ -49,6 +50,7 @@ public class NewPersonActivity extends AppCompatActivity {
 
         Toast.makeText(NewPersonActivity.this,
                 "Success to add a new person!", Toast.LENGTH_LONG).show();
+
         // Clear EditText box
         clearInput();
     }

@@ -58,7 +58,7 @@ public class PhonebookActivity extends AppCompatActivity implements AdapterView.
 
         // Pass the person id on to DetailActivity
         Intent intent = new Intent(PhonebookActivity.this, DetailActivity.class);
-        intent.putExtra(DetailActivity.EXTRA_PERSONID, selectedPersonId);
+        intent.putExtra(DetailActivity.EXTRA_PERSON_ID, selectedPersonId);
         startActivity(intent);
     }
 }

@@ -13,7 +13,7 @@ import ca.jeonghoon.phonebook.model.PersonCollection;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String EXTRA_PERSONID = "personId";
+    public static final String EXTRA_PERSON_ID = "personId";
 
     TextView textViewName, textViewPhone, textViewEmail, textViewAddress;
     ImageView imageViewPhoto;
@@ -43,7 +43,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void getPersonId() {
-        int personId = (int) getIntent().getExtras().get(EXTRA_PERSONID);
+        int personId = (int) getIntent().getExtras().get(EXTRA_PERSON_ID);
         // get person from list
         person = PersonCollection.getPersonList().get(personId);
     }
