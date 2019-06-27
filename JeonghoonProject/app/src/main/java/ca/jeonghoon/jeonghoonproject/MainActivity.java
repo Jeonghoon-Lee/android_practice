@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    addNumberToUserAnswer(String input) {
+    private void addNumberToUserAnswer(String input) {
         StringBuilder currentAnswer = new StringBuilder(editTextAnswer.getText().toString());
 
         // enable validate button
