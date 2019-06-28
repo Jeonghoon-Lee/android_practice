@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AlertDialogueActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30dp"
+
+        android:onClick="showAlertDialog1"
+
+        android:text="AlertDialog.Builder 1 (Implementation 1)"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:onClick="showAlertDialog2"
+
+        android:layout_marginTop="8dp"
+        android:text="AlertDialog.Builder 2 (Implementation 2)"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:onClick="showAlertDialog3"
+
+        android:text="AlertDialog.Builder 3 - Radio Buttons"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:onClick="showAlertDialog4"
+
+        android:layout_marginTop="8dp"
+        android:text="AlertDialog.Builder 4 - Multi Selection"
+        android:background="@color/colorPrimary"
+        android:textColor="#fdfdfd"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:onClick="showProgressDialog"
+
+        android:layout_marginTop="8dp"
+        android:text="Progress Dialog"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:onClick="customDialog"
+
+        android:layout_marginTop="8dp"
+        android:text="Custom Dialog"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
+
+</LinearLayout>

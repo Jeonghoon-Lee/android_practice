@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".FileActivity">
+
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textImeMultiLine"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:textColor="#000"
+        android:padding="16dp"
+
+        android:hint="Write your text"
+
+        android:gravity="top"/>
+
+    <!-- Text -->
+    <Button
+        android:id="@+id/writeStringPrivateExternalStorageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:textAllCaps="false"
+        android:text="Write String Private External Storage" />
+
+    <Button
+        android:id="@+id/readStringPrivateExternalStorageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Read String Private External Storage" />
+
+    <Button
+        android:id="@+id/writeStringPublicExternalStorageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Write String Public External Storage" />
+
+    <Button
+        android:id="@+id/readStringPublicExternalStorageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Read String Public External Storage" />
+
+    <!-- Object -->
+    <Button
+        android:id="@+id/writeObjectPrivateExternalStorageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Write Object Private External Storage" />
+
+    <Button
+        android:id="@+id/readObjectPrivateExternalStorageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:text="Read Object Private External Storage" />
+
+
+</GridLayout>

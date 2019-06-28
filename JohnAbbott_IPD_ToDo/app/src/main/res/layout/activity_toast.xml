@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".my_toast.ToastActivity">
+
+    <Button
+        android:id="@+id/btnToast1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="simpleToast"
+
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Simple Toast"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btnToast2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="colorToast"
+
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Test Color For Toast"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="btnOnClick"
+        android:tag="alert"
+
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:text="ALERT"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="btnOnClick"
+        android:tag="warning"
+
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:text="WARNING"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="btnOnClick"
+        android:tag="info"
+
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:text="INFO"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="btnOnClick"
+        android:tag="success"
+
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:text="SUCCESS"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:onClick="btnOnClick"
+        android:tag="image"
+
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:text="Image Toast"
+        android:textColor="#ffffff" />
+
+
+</LinearLayout>

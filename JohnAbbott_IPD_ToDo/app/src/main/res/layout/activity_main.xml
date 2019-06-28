@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding"
+
+    android:columnCount="2"
+
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/dialogBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="Dialog" />
+
+
+    <Button
+        android:id="@+id/toastsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="Toasts" />
+
+
+    <Button
+        android:id="@+id/internetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="Internet" />
+
+
+    <Button
+        android:id="@+id/broadcastBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="Async" />
+
+
+    <Button
+        android:id="@+id/spinnerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="Spinner" />
+
+
+    <Button
+        android:id="@+id/listViewBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="ListView" />
+
+
+    <Button
+        android:id="@+id/fileBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="File" />
+
+
+    <Button
+        android:id="@+id/dbBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_margin="4dp"
+        android:background="@color/colorPrimary"
+
+        style="@style/mainBtn"
+
+        android:textAllCaps="false"
+        android:text="DB" />
+
+</GridLayout>
