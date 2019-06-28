@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ca.jeonghoon.day7component">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    package="ca.masoudbozorgi.customlist">
 
     <application
         android:allowBackup="true"
@@ -12,11 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".async.URLConnectActivity"></activity>
-        <activity android:name=".internet.InternetActivity" />
-        <activity android:name=".spinner.SpinningRatingActivity" />
-        <activity android:name=".toast.ToastActivity" />
-        <activity android:name=".dialog.DialogActivity" />
+        <activity android:name=".DetailActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import ca.jeonghoon.day7component.dialog.DialogActivity;
+import ca.jeonghoon.day7component.internet.InternetActivity;
 import ca.jeonghoon.day7component.spinner.SpinningRatingActivity;
 import ca.jeonghoon.day7component.toast.ToastActivity;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this, ToastActivity.class);
                 break;
             case R.id.btnInternet:
+                intent = new Intent(this, InternetActivity.class);
                 break;
             case R.id.btnAsync:
                 break;
