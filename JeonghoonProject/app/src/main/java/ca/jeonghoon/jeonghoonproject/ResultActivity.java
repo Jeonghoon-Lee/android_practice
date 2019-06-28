@@ -38,6 +38,8 @@ public class ResultActivity extends AppCompatActivity implements ViewStub.OnClic
         initialize();
         getQuizData();
         displayScore();
+
+        showResult();
     }
 
     private void initialize() {

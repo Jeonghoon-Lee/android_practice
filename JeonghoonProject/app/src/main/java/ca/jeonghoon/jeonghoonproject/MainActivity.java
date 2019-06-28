@@ -111,50 +111,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void addNumberToUserAnswer(String input) {
         StringBuilder currentAnswer = new StringBuilder(editTextAnswer.getText().toString());
 
-        if (currentAnswer.length() == 0) {
-            if (input.equals(".")) {
-                currentAnswer.append("0");       // add 0 before adding dot(.)
+        // enable validate button
+        findViewById(R.id.buttonValidate).setEnabled(true);
+
+        if (input.equals("-")) {
+            if (currentAnswer.indexOf("-") == 0) {
+                // number is already minus value
+                currentAnswer.deleteCharAt(0);       // delete minus(-) sign
+            } else {
+                currentAnswer.insert(0, "-");
+            }
+        } else if (input.equals(".")) {
+            if (currentAnswer.length() == 0) {
+                currentAnswer.append("0.");
+            } else if (currentAnswer.length() == 1 && currentAnswer.indexOf("-") == 0) {
+                // current input is - sign
+                currentAnswer.append("0.");
+            } else if (currentAnswer.indexOf(".") < 0) {
+                // dot(.) is not a part of user input
+                currentAnswer.append(".");
+            }
+            // number is already float number, ignore dot(.)
+        } else {
+            if ((currentAnswer.length() == 1) && currentAnswer.indexOf("0") == 0) {
+                // current user input is 0
+                // clear current value(0)
+                currentAnswer.setLength(0);
             }
             currentAnswer.append(input);
-
-            // enable validate button
-            findViewById(R.id.buttonValidate).setEnabled(true);
-        } else {
-            if (currentAnswer.length() == 1) {
-                if (currentAnswer.indexOf("0") == 0) { // current input is 0
-                    // number can't be started with 0. ignore previous 0
-                    if (!input.equals(".")) {
-                        currentAnswer.setLength(0);     // clear buffer
-                    }
-                    currentAnswer.append(input);
-                } else if (currentAnswer.indexOf("-") == 0) {
-                    if (input.equals(".")) {
-                        currentAnswer.append("0");      // add 0 before dot(.)
-                        currentAnswer.append(input);
-                    } else if (input.equals("-")) {
-                        currentAnswer.setLength(0);
-                    } else {
-                        currentAnswer.append(input);
-                    }
-                } else {
-                    currentAnswer.append(input);
-                }
-            } else {
-                if (input.equals("-")) {
-                    if (currentAnswer.indexOf("-") == 0) {   // number is already minus value
-                        currentAnswer.deleteCharAt(0);       // delete minus(-) sign
-                    } else {
-                        currentAnswer.insert(0, "-");
-                    }
-                } else if (input.equals(".")) {
-                    if (currentAnswer.indexOf(".") < 0) {   // if number doesn't have dot(.)
-                        currentAnswer.append(".");
-                    }
-                } else {    // number
-                    currentAnswer.append(input);
-                }
-            }
         }
+
         editTextAnswer.setText(currentAnswer);
         editTextAnswer.setSelection(editTextAnswer.getText().length());     // move cursor to end
     }
